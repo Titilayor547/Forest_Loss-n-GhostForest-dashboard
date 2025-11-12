@@ -7,6 +7,7 @@ import leafmap.foliumap as leafmap
 import plotly.express as px
 import plotly.graph_objects as go
 import tempfile
+import requests 
 
 # NOTE: Ensure sankey_utils.py is in your directory and create_sankey is defined.
 from sankey_utils import create_sankey 
