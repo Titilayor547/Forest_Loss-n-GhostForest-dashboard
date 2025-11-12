@@ -64,8 +64,8 @@ raster_color_map = list(raster_color_map.values())
 # ---------------------------
 # LOAD RASTERS
 # ---------------------------
-path_1993 = "https://drive.google.com/file/d/15IhrbIgDvc79dPFuXyW1jbahM_zd_oqn/view?usp=sharing"
-path_2000 = "https://drive.google.com/file/d/1P25i9yQ982F49dernN8sF0CFnRD9mLeu/view?usp=sharing"
+path_1993 = "https://raw.githubusercontent.com/Titilayor547/Forest_Loss-n-GhostForest-dashboard/main/pred_Land1985a.tif"
+path_2000 = "https://raw.githubusercontent.com/Titilayor547/Forest_Loss-n-GhostForest-dashboard/main/pred_Land2021a.tif"
 
 df_1993 = pd.DataFrame({'Landcover': [], 'Area_Pixels': []})
 df_2000 = pd.DataFrame({'Landcover': [], 'Area_Pixels': []})
