@@ -81,6 +81,9 @@ download_tif("https://raw.githubusercontent.com/Titilayor547/Forest_Loss-n-Ghost
 download_tif("https://raw.githubusercontent.com/Titilayor547/Forest_Loss-n-GhostForest-dashboard/main/pred_Land2021a.tif",
              "pred_Land2021a.tif")
 
+path_1993 = "pred_Land1985a.tif"
+path_2000 = "pred_Land2021a.tif"
+
 df_1993 = pd.DataFrame({'Landcover': [], 'Area_Pixels': []})
 df_2000 = pd.DataFrame({'Landcover': [], 'Area_Pixels': []})
 df_change = pd.DataFrame({'From_ID': [], 'To_ID': [], 'Area_Pixels': []})
@@ -157,10 +160,10 @@ with col1_map:
     )
 
     if array_1993 is not None:
-        m.add_raster(path_1993, layer_name="1993 Landcover", colormap=raster_color_map, nodata=-1, visible=(selected_year=='1993'))
+        m.add_raster(path_1993, layer_name="1993 Landcover", colormap=raster_color_map, nodata=-1, visible=(selected_year=='1985'))
     
     if array_2000 is not None:
-        m.add_raster(path_2000, layer_name="2000 Landcover", colormap=raster_color_map, nodata=-1, visible=(selected_year=='2000'))
+        m.add_raster(path_2000, layer_name="2000 Landcover", colormap=raster_color_map, nodata=-1, visible=(selected_year=='2021'))
     
     # Splitter for comparison view
     #if selected_year == 'Compare (Slider)' and array_1993 is not None and array_2000 is not None:
