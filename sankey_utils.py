@@ -5,7 +5,7 @@ import plotly.graph_objects as go
 from matplotlib import colors
 import matplotlib.colors as mcolors
 
-def create_sankey(data_path = "sankey_data.csv"):
+def create_sankey(data_path):
     """
     Create a Plotly Sankey diagram from two raster arrays.
     

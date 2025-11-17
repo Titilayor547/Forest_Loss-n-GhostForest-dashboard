@@ -76,6 +76,7 @@ print(gdf_1985)
 df_1985 = pd.read_csv(r"table/df_1985.csv")
 df_2021 = pd.read_csv(r"table/df_2021.csv")
 df_change = pd.read_csv(r"table/df_change.csv")
+sankey_path = r"table/sankey_data.csv"
 
 # ------------------------------------------------------------
 # LAYOUT: MAP (LEFT) — CHARTS (RIGHT)
@@ -172,7 +173,7 @@ if not df_change.empty:
     try:
         # Pass the calculated change DataFrame to your function
         # NOTE: Your create_sankey function must be able to process df_change
-        sankey_fig = create_sankey("table\sankey_data.csv") 
+        sankey_fig = create_sankey(sankey_path) 
         st.plotly_chart(sankey_fig, use_container_width=True)
     except Exception as e:
         st.error(f"Could not generate Sankey diagram. Please check your `create_sankey` function. Error: {e}")
