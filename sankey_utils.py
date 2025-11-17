@@ -5,7 +5,7 @@ import plotly.graph_objects as go
 from matplotlib import colors
 import matplotlib.colors as mcolors
 
-def create_sankey(pred_seg1985, pred_seg2021):
+def create_sankey(data_path = "sankey_data.csv"):
     """
     Create a Plotly Sankey diagram from two raster arrays.
     
@@ -23,31 +23,20 @@ def create_sankey(pred_seg1985, pred_seg2021):
     class_colors = [c_map(i) for i in range(c_map.N)]
     class_names = ["Marsh", "Shrub", "Ghost Forest", "Forest", "Cultivated", "Water"] #darkred
 
-    # Generate transition counts between 2000 and 2022
-    transitions = pred_seg1985 * 10 + pred_seg2021
-    unique, counts = np.unique(transitions, return_counts=True)
-    transition_counts = dict(zip(unique, counts))
-
     # Filter out the boundary class -1
-    source_classes = sorted([cls for cls in np.unique(pred_seg1985) if cls != -1])
-    target_classes = sorted([cls for cls in np.unique(pred_seg2021) if cls != -1])
+    source_classes = [0, 1, 2, 3, 4, 5]
+    target_classes = [0, 1, 2, 3, 4, 5]
 
     # Prepare flows and labels
-    flows = []
-    labels = []
-    for source in source_classes:
-        for target in target_classes:
-            pair_code = source * 10 + target
-            if pair_code in transition_counts:
-                flow_value = transition_counts[pair_code]
-                flows.append(flow_value)
-                labels.append(f"{source} → {target}")  # Prepare Sankey data with correct source/target indexing
-
+    labels = ['0 → 0', '0 → 1', '0 → 2', '0 → 3', '0 → 4', '0 → 5', 
+              '1 → 0', '1 → 1', '1 → 2', '1 → 3', '1 → 4', '1 → 5', 
+              '2 → 0', '2 → 1', '2 → 2', '2 → 3', '2 → 4', '2 → 5', 
+              '3 → 0', '3 → 1', '3 → 2', '3 → 3', '3 → 4', '3 → 5', 
+              '4 → 0', '4 → 1', '4 → 2', '4 → 3', '4 → 4', '4 → 5', 
+              '5 → 0', '5 → 2', '5 → 3', '5 → 4', '5 → 5']
     # Create a DataFrame with the flow data
-    sankey_data = pd.DataFrame({
-        "source": [int(str(label).split(" → ")[0]) for label in labels],
-        "target": [int(str(label).split(" → ")[1]) + len(source_classes) for label in labels],  # Offset target classes
-        "flow": flows})
+    sankey_data = pd.read_csv(data_path)
+    flows = sankey_data["flow"]
 
     # Source totals (so they sum to 100%)
     total_source_flow = sankey_data[sankey_data["source"].isin(source_classes)]["flow"].sum()
@@ -103,9 +92,14 @@ def create_sankey(pred_seg1985, pred_seg2021):
     # Add the traces for the legend
     sankey_fig.add_traces(patches)
     sankey_fig.update_traces(
-        textfont=dict(color='black', family="Impact", size=15),
+        #node_align="center",
+        textfont=dict(color='black', family="Impact", size=20, #shadow="none"
+                      ),
         hoverinfo='all',
-        hoverlabel=dict(bgcolor='rgba(0,0,0,0)', font=dict(color="white"))#,
+        #textposition="inside",   # or "outside"
+        hoverlabel=dict(bgcolor='rgba(0,0,0,0)', font=dict(color="white"), #align="center",
+                         #bordercolor="white"
+                        )#,
         #selector=dict(type='sankey')  # Change label font color to black
     )
 

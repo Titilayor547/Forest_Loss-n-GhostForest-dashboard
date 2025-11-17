@@ -1,0 +1,36 @@
+,From_ID,To_ID,Area_Pixels,From_Landcover,To_Landcover
+0,0,0,194097,Marsh,Marsh
+1,0,1,4238,Marsh,Shrub
+2,0,2,1941,Marsh,Ghost Forest
+3,0,3,32089,Marsh,Forest
+4,0,4,26831,Marsh,Cultivated Land
+5,0,5,32228,Marsh,Water
+6,1,0,50370,Shrub,Marsh
+7,1,1,59736,Shrub,Shrub
+8,1,2,3837,Shrub,Ghost Forest
+9,1,3,43377,Shrub,Forest
+10,1,4,7241,Shrub,Cultivated Land
+11,1,5,1409,Shrub,Water
+12,2,0,863,Ghost Forest,Marsh
+13,2,1,3087,Ghost Forest,Shrub
+14,2,2,194,Ghost Forest,Ghost Forest
+15,2,3,2113,Ghost Forest,Forest
+16,2,4,118,Ghost Forest,Cultivated Land
+17,2,5,4,Ghost Forest,Water
+18,3,0,107667,Forest,Marsh
+19,3,1,149154,Forest,Shrub
+20,3,2,104507,Forest,Ghost Forest
+21,3,3,2672324,Forest,Forest
+22,3,4,337066,Forest,Cultivated Land
+23,3,5,15164,Forest,Water
+24,4,0,16030,Cultivated Land,Marsh
+25,4,1,11032,Cultivated Land,Shrub
+26,4,2,15233,Cultivated Land,Ghost Forest
+27,4,3,234592,Cultivated Land,Forest
+28,4,4,1532003,Cultivated Land,Cultivated Land
+29,4,5,2484,Cultivated Land,Water
+30,5,0,4433,Water,Marsh
+31,5,2,91,Water,Ghost Forest
+32,5,3,15173,Water,Forest
+33,5,4,567,Water,Cultivated Land
+34,5,5,1261187,Water,Water
